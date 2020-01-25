@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<style>
+.center {
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;  
+  background-color: white;
+}
+
+input[type=text], select {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number], select {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 40%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #16aa1e;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 38%;
+  height: 25px;
+  width: 25px;
+  background-color: #22d62b;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+p {outline-color:red;}
+p.solid {outline-style: solid;}
+
+.header, .footer {
+  background-color:#FF5A5F;
+  color: white;
+  padding: 15px;
+}
+
+body {
+  background-image: url('https://shorttermrentalz.com/wp-content/uploads/2019/06/Airbnb-Luxe.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+}
+.white-box {
+    background-color: white;
+    color: black;
+}
+</style>
+<body>
+		<form method="POST" class="center">
+			<div class="header">
+			<h1 style="color:black;">Welcome to Airbnb Price Prediction Portal</h1>
+			</div>
+			<h2 style="color:#484848;">Personal Details</h2>
+
+			<input type="text" name="name" placeholder="Enter your name">
+			<br>
+			<input type="text" name="email" placeholder="Enter your Email">
+			<br>
+
+			<h2 style="color:#484848;">Property Details</h2>
+			<select name = "property" required>
+				<option disabled selected value> Select Property Type </option>
+				<option value = "House">House</option>
+				<option value = "Apartment">Apartment</option>
+				<option value = "Other">Other</option>
+			</select>
+			<br>
+			<select name = "borough" required>
+				<option disabled selected value> Select Borough </option>
+				<option value = "Brooklyn">Brooklyn</option>
+				<option value = "Manhattan">Manhattan</option>
+				<option value = "Bronx">Bronx</option>
+				<option value = "Queens">Queens</option>
+				<option value = "Staten Island">Staten Island</option>
+			</select>
+			<br>
+			<input type="number" placeholder="Enter the Number of Listings you have" name="listings" min="0" required>
+			<br>
+			<h2 style="color:#484848;">Property Specifications</h2>
+			<select name = "roomtype" required>
+				<option disabled selected value> Select Room Type </option>
+				<option value = "Shared room">Shared room</option>
+				<option value = "Private room">Private room</option>
+				<option value = "Apartment">Apartment</option>
+				<option value = "Hotel room">Hotel room</option>
+				
+			</select>
+			<br>
+			<input type="number" placeholder="Enter the Cleaning Fee" name="fee" min="0" required>
+			<br>
+			<input type="number" placeholder="Enter the number of Bedrooms" name="bedrooms" min="0" required>
+			<br>
+			<input type="number" placeholder="Enter the Availability out of 365 days" name="available365" min="0" required>
+			<br>
+			<input type="number" placeholder="Enter the number of Guests" name="guests" min="0" required>
+			<br>
+			<input type="number" placeholder="Enter the number of Bathrooms" name="bathroom" min="0" required>
+			<br>
+			<input type="number" placeholder="Enter the amount of Deposit" name="deposit" min="0" required>
+			<br>
+			<input type="number" placeholder="Enter the Accomodation Capacity" name="accomodation" min="0" required>
+			<br>
+
+			<h2 style="color:#484848;">Property Amenities</h2>
+			<label class="container">
+			<input type="checkbox" name="selfcheckin" value="selfcheckin"> Self Check-In <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="privateentrance" value="privateentrance"> Private Entrance <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="laundry" value="laundry"> Laundry <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="gym" value="gym"> Gym <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="television" value="television"> Television <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="air" value="air"> Air Conditioning <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="elevator" value="elevator"> Elevator <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="parking" value="parking"> Parking <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="bath_amenities" value="bath_amenities"> Bathroom Amenities<br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="cooking" value="cooking"> Cooking Basics <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<br>
+			<label class="container">
+			<input type="checkbox" name="balcony" value="balcony"> Balcony <br><br>
+			<span class="checkmark"></span>
+			</label>
+			<h1><p>{{data}}</p></h1>>
+			<input type="submit" onclick="myFunction()">
+			<div class="show-data"></div>
+	</form>
+	
+	</body>
+	</html>
